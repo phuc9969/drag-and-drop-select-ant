@@ -1,0 +1,47 @@
+<label></label>
+
+<ng-select cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="selectedLocations" cdkDropListOrientation="horizontal"
+  [(ngModel)]="selectedLocations" [items]="Locations" [searchable]="true" bindLabel="name" [multiple]="true"
+  placeholder="Select Locations">
+
+  <ng-template ng-label-tmp let-item="item" let-clear="clear">
+    <div class="example-box" cdkDrag [cdkDragData]="item">
+      <!-- <i class="material-icons" cdkDragHandle>
+        ##
+    </i> -->
+
+      <span class="ng-value-label">{{item.name}}</span>
+      <span
+        class="ng-value-icon right"
+        (click)="clear(item)">×
+      </span>
+      <span *cdkDragPreview >{{item.name}} </span>
+    </div>
+  </ng-template>
+</ng-select>
+
+<!-- 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p> {{selectedLocations|json}}</p>
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let location of selectedLocations" cdkDrag>
+    {{location.name}}
+    <span *cdkDragPreview >{{location.name}} </span>
+  </div>
+</div> -->
